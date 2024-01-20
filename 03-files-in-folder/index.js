@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-let fileInfo;
 const folderPath = path.join(__dirname, 'secret-folder');
 fs.readdir(folderPath, {withFileTypes: true, encoding: 'utf-8'}, (err, files) => {
     if (err) throw err;    
@@ -14,7 +13,7 @@ fs.readdir(folderPath, {withFileTypes: true, encoding: 'utf-8'}, (err, files) =>
                 const filename = filenameAll.slice(0, index);
                 const fileExt = path.extname(filePath).slice(1);
                 let fileStat = stats.size;                
-                fileInfo = filename + ' - ' + fileExt + ' - ' + fileStat + 'b';
+                let fileInfo = filename + ' - ' + fileExt + ' - ' + fileStat + 'b';
                 console.log(fileInfo);
             });  
         } 
